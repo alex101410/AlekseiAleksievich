@@ -97,7 +97,7 @@
                               <option value="5">Рязань</option>
                               <option value="6">Магадан</option>
                         </optgroup>
-                        </select>
+                    </select>
                     <input type="submit" value="Ok">
                 </fieldset>
                 </form>
@@ -122,7 +122,7 @@
                 <form action="http://fe.it-academy.by/TestForm.php" method="post">
                     <fieldset>
                         <legend>Строка поиска</legend>
-                        <input pattern="^[А-Яа-яЁё\s]+$" placeholder="Только русские буквы" name="surname" required><br>
+                        <input type="text" pattern="^[А-Яа-яЁё]+$" placeholder="Только русские буквы" name="lastName" required><br>
                         <i>Телефонный номер в формате<br>
                         +ХХХ-ХХ-ХХХХХХХ, где Х - любое числоы<br></i>
                         <input type="tel" name="phone number" pattern="^\+375-(17|29|33|44)-\d{7}" placeholder="+375-29-1234567"required><br>
