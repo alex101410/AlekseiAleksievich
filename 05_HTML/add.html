@@ -11,17 +11,17 @@
     <form action="http://fe.it-academy.by/TestForm.php">
         <fieldset>
             <legend>Личные данные</legend>
-            <input type="text" size="30" pattern="^[А-Яа-яЁё]+$" placeholder="Фамилия" maxlength="25" name="lastName" required autofocus><br>
+            <input type="text" size="30" pattern="^[А-Яа-яЁё\S]+$" placeholder="Фамилия" maxlength="25" name="lastName" required autofocus><br>
             <input type="text" size="30" pattern="^[А-Яа-яЁё]+$" placeholder="Имя" maxlength="20"name="firstName" required><br>
             <input type="text" size="30" pattern="^[А-Яа-яЁё]+$" placeholder="Отчество" maxlength="24"name="middleName" required>
             <fieldset>
                 <legend>Паспортные данные</legend>
-                <input type="text" size="4" pattern="^[A-Z]{2}" placeholder="AA" maxlength="2" name="mseries" required>
-                <input type="text" size="10" pattern="^[0-9]{7}" placeholder="1234567" maxlength="7" name="mseries" required>
+                <input type="text" size="4" pattern="[A-Z]{2}" placeholder="AA" maxlength="2" name="passportSeries" required>
+                <input type="text" size="10" pattern="[0-9]{7}" placeholder="1234567" maxlength="7" name="passportNumber" required>
             </fieldset>
             <fieldset>
                 <legend>Дата рождения</legend>
-                <input type="text" size="5" pattern="^[0-9]{4}" placeholder="2000" maxlength="4" name="year"><br>
+                <input type="text" size="5" pattern="[0-9]{4}" placeholder="2000" maxlength="4" name="year"><br>
                 <select name="month">
                     <option value="01">Январь</option>
                     <option value="02">Февраль</option>
@@ -39,8 +39,8 @@
                 <input type="number" name="day" min="1" max="31" step="1">
             </fieldset>
             <select name="nationality" required>
-                <option value="RB">РБ</option>
-                <option value="RF">РФ</option>
+                <option value="belarus">РБ</option>
+                <option value="russian">РФ</option>
             </select><br>
             Адрес:<br>
             <textarea name="address" required></textarea>
@@ -56,7 +56,7 @@
             </fieldset>
             <fieldset>
                 <legend>Домашние животные</legend>
-                <select name="Pets" size="12">
+                <select name="pets" size="12">
                     <optgroup label="Попугаи">
                           <option value="1">Волнистый</option>
                           <option value="2">Ара</option>
@@ -77,8 +77,24 @@
         </fieldset>
         <fieldset>
             <legend>Данные для входа и восстановления пароля</legend>
-            <input type="text" name="login" required> Логин<br>
-            <input type="password" name="password" required> Пароль<br>
+            <input type="text" pattern="[A-Za-z\S]{5,}" placeholder="Логин" maxlength="20" name="login" required><br>
+            <input type="password" pattern="[A-Za-z\S]{10,}" placeholder="Пароль" maxlength="20" name="password" autocomplete="off" required><br>
+        </fieldset>
+        <fieldset>
+            <legend>Координаты:</legend>
+            <input type="email" placeholder="введите адрес почты" name="email"><br>
+            <input type="url" placeholder="введите адрес сайта" name="url">
+        </fieldset>
+        <fieldset>
+            <legend>Цифры</legend>
+            <input type="number" min="-2.5" max="2.5" step="0.1" name="number"><br>
+            <input type="range" min="1" max="10" name="range">
+        </fieldset>
+        <fieldset>
+            <legend>Кнопки управления</legend>
+            <input type="submit" value="Отправить">
+            <input type="reset" value="Сбросить"><br>
+            <button type="button"><img src='12345.jpeg'></button> 
         </fieldset>
     </form>
 </body>
