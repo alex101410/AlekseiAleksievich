@@ -11,17 +11,16 @@
         display: inline-block;
         }
         .menu-content {
-        display: none;
-        height: 65px;
+        overflow: hidden; height: 0px;
         position: absolute;
         }
         button {
         width: 95px;
         }
-        .menu:hover .menu-content {display: block;}
+        .menu:hover .menu-content {overflow: hidden; height: 65px; transition: height 5s;}
         @media all and (max-width: 705px) {
-          body {display: table-caption;}
-          .menu-content {position: fixed; margin-left: 100px; margin-top: -21px;}
+          
+        .menu-content {position: fixed; margin-left: 100px; margin-top: -21px;}
         }
     </style>
 </head>
