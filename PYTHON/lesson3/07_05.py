@@ -14,7 +14,7 @@
 
 
 
-a = int(input("please enter a")) 
+a = int(input("please enter a"))
 b = int(input("please enter b"))
 c = int(input("please enter c"))
 d = b ** 2 - 4 * a * c
