@@ -15,7 +15,7 @@ elif periods == 4:
 elif periods == 5:
     p = 1
 else:
-    p = 1/t
     print("You have a one-time capitalization.")
+    p = 1/t
 s = round(d * (1 + n/100/p) ** (t * p))
 print("The amount in the account at the end of the period will be", s, "BYN")
