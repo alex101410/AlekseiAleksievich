@@ -7,3 +7,6 @@ print(s.upper(), s)
 #s = s.replace(" ", "_")
 print(s)
 print(s.split())
+
+a = input()
+print(type(a))
