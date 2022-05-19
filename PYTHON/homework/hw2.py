@@ -1,21 +1,18 @@
 from datetime import datetime
 current_time = datetime.now().time()
-#check the entered parameters and select the option
 choice = input("""Введите время в формате "hh:mm", 
 либо нажмите "Enter" для использования текущего времени:\n""")
-
-a, b = map(int, choice.split(":"))
-
+#check the entered parameters and select the option
 if not choice:
-    H = current_time.hour
-    M = current_time.minute
-elif a < 24 and ":" in choice and b < 60 and len(choice) == 5:
-    H, M = a, b
+    hours = current_time.hour
+    minuts = current_time.minute
+elif int(choice[0:2]) < 24 and ":" in choice and int(choice[3:5]) < 60 and len(choice) == 5:
+    hours, minuts = map(int, choice.split(":"))
 else:
     print("""Формат ввода времени не верен! (hh:mm)
     Использовано текущее время""")
-    H = current_time.hour
-    M = current_time.minute
+    hours = current_time.hour
+    minuts = current_time.minute
     
 dict_hour = {1: "один час", 2: "два часа", 3: "три часа", 4: "четыре часа", 5: "пять часов",
             6: "шесть часов", 7: "семь часов", 8: "восемь часов", 9: "девять часов",
@@ -44,21 +41,21 @@ dict_minuts_2 = {1: "одной минуты", 2: "двух минут", 3: "т�
                  6: "шести минут", 7: "семи минут", 8: "восеми минут", 9: "девяти минут",
                  10: "десяти минут", 11: "одиннадцати минут", 12: "двенадцати минут",
                  13: "тринадцати минут", 14: "четырнадцати минут", 15: "пятнадцати минут"}
-M1 = M % 10
-M2 = M - M1
-if M in dict_minuts:
-    y = dict_minuts.get(M)
+minuts_1 = minuts % 10
+minuts_2 = minuts - minuts_1
+if minuts in dict_minuts:
+    y = dict_minuts.get(minuts)
 else:
-    y = dict_minuts.get(M2) + " " + dict_minuts.get(M1)
+    y = dict_minuts.get(minuts_2) + " " + dict_minuts.get(minuts_1)
 
-if M == 0:
-    print(dict_hour.get(H), y)
-elif M < 30 or M > 30 and M < 45:
-    print(y, dict_hour_2.get(H))
-elif M == 30:
-    print("половина", dict_hour_2.get(H))
+if minuts == 0:
+    print(dict_hour.get(hours), y)
+elif minuts < 30 or minuts > 30 and minuts < 45:
+    print(y, dict_hour_2.get(hours))
+elif minuts == 30:
+    print("половина", dict_hour_2.get(hours))
 else:
-    print("без", dict_minuts_2.get(60 - M), dict_hour_3.get(H+1))
+    print("без", dict_minuts_2.get(60 - minuts), dict_hour_3.get(hours+1))
 #else:
 #    print(dict_hour.get(H), y)
 
