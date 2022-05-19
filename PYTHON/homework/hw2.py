@@ -2,18 +2,24 @@ from datetime import datetime
 current_time = datetime.now().time()
 choice = input("""Введите время в формате "hh:mm", 
 либо нажмите "Enter" для использования текущего времени:\n""")
+
 #check the entered parameters and select the option
 if not choice:
     hours = current_time.hour
     minuts = current_time.minute
-elif int(choice[0:2]) < 24 and ":" in choice and int(choice[3:5]) < 60 and len(choice) == 5:
+elif choice.replace(":","").isdigit() and int(choice[0:2]) < 24 and ":" in choice \
+    and int(choice[3:5]) < 60 and len(choice) == 5:
     hours, minuts = map(int, choice.split(":"))
 else:
     print("""Формат ввода времени не верен! (hh:mm)
     Использовано текущее время""")
     hours = current_time.hour
     minuts = current_time.minute
-    
+
+#output intermediate result
+print(hours,":",minuts)
+
+#enter dictionaries
 dict_hour = {1: "один час", 2: "два часа", 3: "три часа", 4: "четыре часа", 5: "пять часов",
             6: "шесть часов", 7: "семь часов", 8: "восемь часов", 9: "девять часов",
             10: "десять часов", 11: "одиннадцать часов", 12: "двенадцать часов",
@@ -56,15 +62,3 @@ elif minuts == 30:
     print("половина", dict_hour_2.get(hours))
 else:
     print("без", dict_minuts_2.get(60 - minuts), dict_hour_3.get(hours+1))
-#else:
-#    print(dict_hour.get(H), y)
-
-
-#check the entered parameters and select the option
-#temporary variables a and b
-
-# + min == 0: такое-то значение часа ровно (15:00 - три часа ровно)
-# + min < 30: столько-то минут следующего часа (19:12 - двенадцать минут восьмого)
-# + min > 30 and min < 45 столько-то минут следующего часа (12:38 - тридцать восемь минут первого)
-# + min == 30: половина такого-то (15:30 - половина четвёртого)
-# + min >= 45 без min такого-то (08:54 - без шести минут девять)
