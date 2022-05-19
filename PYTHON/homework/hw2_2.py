@@ -2,14 +2,13 @@ from datetime import datetime
 current_time = datetime.now().time()
 choice = input("""Введите время в формате "hh:mm", 
 либо нажмите "Enter" для использования текущего времени:\n""")
-
+a, b = map(int, choice.split(":"))
 
 if not choice:
     H = current_time.hour
     M = current_time.minute
-elif ":" in choice and len(choice) == 5: #choice.isdigit()
-    H, M = map(int, choice.split(":"))
-  
+elif a < 24 and ":" in choice and b < 60 and len(choice) == 5:
+    H, M = a, b
 else:
     print("""Формат ввода времени не верен! (hh:mm)
     Использовано текущее время""")
