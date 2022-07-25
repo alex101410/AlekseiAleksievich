@@ -43,9 +43,9 @@ for articles[i] in articles:
         catalog.append({'brend':brend,'article':article, 'quantity':quantity, 'cost':cost})
     i =+ 1
 
-
-with open('parse.csv', 'w',  encoding='utf8', newline='') as file:
-    writer = csv.writer(file, delimiter=',')
-    writer.writerow(['Бренд', 'Артикул', 'Количество', 'Цена'])
-    for i in catalog:
-        writer.writerow([i['brend'], i['article'], i['quantity'], i['cost']])
+print(catalog)
+# with open('parse.csv', 'w',  encoding='utf8', newline='') as file:
+#     writer = csv.writer(file, delimiter=',')
+#     writer.writerow(['Бренд', 'Артикул', 'Количество', 'Цена'])
+#     for i in catalog:
+#         writer.writerow([i['brend'], i['article'], i['quantity'], i['cost']])
