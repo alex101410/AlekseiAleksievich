@@ -8,6 +8,7 @@ class Product (models.Model):
     )
     article = models.TextField(
         verbose_name='Артикл',
+        unique=True,
     )
     quantity = models.TextField(
         verbose_name='Количество',
