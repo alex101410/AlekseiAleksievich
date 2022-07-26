@@ -3,12 +3,15 @@ from turtle import title
 from django.db import models
 
 class Product (models.Model):
+    article = models.TextField(
+    verbose_name='Артикул',
+    )
     brend = models.TextField(
         verbose_name='Бренд',
     )
-    article = models.TextField(
-        verbose_name='Артикл',
-        unique=True,
+    cross = models.TextField(
+        verbose_name='Кросс',
+#        unique=True,
     )
     quantity = models.TextField(
         verbose_name='Количество',

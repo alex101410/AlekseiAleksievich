@@ -1,5 +1,5 @@
-from gettext import Catalog
-from pydoc import text
+# from gettext import Catalog
+# from pydoc import text
 import requests
 from bs4 import BeautifulSoup as BS
 
@@ -33,22 +33,24 @@ def get_content(r):
 def get_product(soup):
 #    catalog = []
     i = 0
+
     for k in soup:
 
         brend = soup.findAll('a', class_='fancy_inline droppeda danger-hover-link brand-search')[i].text.strip()
-        article = soup.findAll('a', style="font-size: 14px")[i].text.strip()
+        cross = soup.findAll('a', style="font-size: 14px")[i].text.strip()
         quantity = soup.findAll('div', class_='col-4 col-sm-2 col-lg-1 text-center m-auto')[i].text.strip()
         cost = soup.findAll('span', class_='old_PriceLevel')[i].text.strip()
         
         p = Product(
+            article = 'k2056c3',
             brend = brend,
-            article = article,
+            cross = cross,
             quantity = quantity,
             cost = cost,
         ).save()
         print(f'product {p}')
         i+=1
-    return brend, article, quantity, cost
+    return 
 
 
 

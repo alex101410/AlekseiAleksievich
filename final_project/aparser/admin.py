@@ -5,5 +5,6 @@ from .models import Product
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('brend', 'article', 'quantity', 'cost')
+    list_display = ('article', 'brend', 'cross', 'quantity', 'cost')
+#    list_filter = ('article')
     form = ProductForm
