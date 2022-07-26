@@ -11,13 +11,16 @@ class Product (models.Model):
     )
     cross = models.TextField(
         verbose_name='Кросс',
-#        unique=True,
+        unique=True,
     )
     quantity = models.TextField(
         verbose_name='Количество',
     )
     cost = models.DecimalField(
         verbose_name='Цена', max_digits=5, decimal_places=2,
+    )
+    parsing_date = models.DateTimeField(
+        verbose_name='Дата парсинга'
     )
 
     class Meta:

@@ -12,7 +12,8 @@ class ProductForm(forms.ModelForm):
             'brend',
             'cross', 
             'quantity', 
-            'cost'
+            'cost',
+            'parsing_date',
         )
         widgets = {
             'article': forms.TextInput,

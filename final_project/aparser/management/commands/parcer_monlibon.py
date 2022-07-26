@@ -2,6 +2,7 @@
 # from pydoc import text
 import requests
 from bs4 import BeautifulSoup as BS
+import datetime
 
 from django.core.management.base import BaseCommand
 from aparser.models import Product
@@ -41,13 +42,21 @@ def get_product(soup):
         quantity = soup.findAll('div', class_='col-4 col-sm-2 col-lg-1 text-center m-auto')[i].text.strip()
         cost = soup.findAll('span', class_='old_PriceLevel')[i].text.strip()
         
-        p = Product(
-            article = 'k2056c3',
-            brend = brend,
-            cross = cross,
-            quantity = quantity,
-            cost = cost,
-        ).save()
+        try:
+            p = Product.objects.get(cross=cross)
+            p.brend = brend
+            p.quantity = quantity
+            p.cost = cost
+            p.parsing_date = datetime.datetime.now()
+        except Product.DoesNotExist:
+            p = Product(
+                article = 'k2056c3',
+                brend = brend,
+                cross = cross,
+                quantity = quantity,
+                cost = cost,
+                parsing_date = datetime.datetime.now(),
+            ).save()
         print(f'product {p}')
         i+=1
     return 
