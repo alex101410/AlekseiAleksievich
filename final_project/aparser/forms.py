@@ -21,3 +21,8 @@ class ProductForm(forms.ModelForm):
             'cross': forms.TextInput,
             'quantity': forms.TextInput,
         }
+
+
+class NameForm(forms.Form):
+    number = forms.CharField(label='number', max_length=100)
+    print(number)
