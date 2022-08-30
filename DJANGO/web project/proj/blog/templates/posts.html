@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        {% for post in posts %}
+            <div class="content-item">
+                <a href="{% url 'post' post.id %}">
+                    <h1>{{ post.title|capfirst }}</h1>
+                </a>
+                <h3>{{ post.subtitle }}</h3>
+                {% if post.image %}
+                    <img width="30%" src="{{ post.image.url }}">
+                {% endif %}
+                <p>by {{ post.author.name }}</p>
+                {% if post.id in viewed_posts.values %}
+                    <p>|viewed|</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
